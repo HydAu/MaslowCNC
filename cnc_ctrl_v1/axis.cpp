@@ -81,6 +81,9 @@ float  Axis::read(){
     else{
         return (_encoder.read()/NUMBER_OF_ENCODER_STEPS)*_mmPerRotation;
     }
+    Serial.print(_axisName);
+    Serial.print(" encoder: ");
+    Serial.println(_encoder.read());
 }
 
 float  Axis::target(){
