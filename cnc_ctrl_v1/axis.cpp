@@ -75,15 +75,16 @@ int    Axis::write(float targetPosition){
 
 float  Axis::read(){
     
+    Serial.print(_axisName);
+    Serial.print(" encoder: ");
+    Serial.println(_encoder.read());
+    
     if (_motor.attached()){
         return (_encoder.read()/NUMBER_OF_ENCODER_STEPS)*_mmPerRotation;
     }
     else{
         return (_encoder.read()/NUMBER_OF_ENCODER_STEPS)*_mmPerRotation;
     }
-    Serial.print(_axisName);
-    Serial.print(" encoder: ");
-    Serial.println(_encoder.read());
 }
 
 float  Axis::target(){
